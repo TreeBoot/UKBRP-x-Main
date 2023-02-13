@@ -6,6 +6,6 @@ module.exports = {
         .setDescription("Pong")
         .setDefaultMemberPermissions(PermissionFlagsBits.Administrator), //Only Admins can use this
         execute(interaction) {
-            interaction.reply({content: "Pong", ephermal: false})  // Only visible for myself. (ephermal)
+            interaction.reply({content: "Pong.", ephermal: false})  // Only visible for myself. (ephermal)
         },
 };
