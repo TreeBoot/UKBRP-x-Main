@@ -31,7 +31,7 @@ module.exports = {
                 const member = guild.members.cache.get(user.id);
                 const time = options.getString("time");
                 const convertedTime = ms(time);
-                const reason = options.getSTring("reason") || "No reason provided";
+                const reason = options.getString("reason") || "No reason provided";
 
                 const errEmbed = new EmbedBuilder()
                     .setDescription('Something went wrong. Please try again later.')
