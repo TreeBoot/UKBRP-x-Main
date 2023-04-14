@@ -59,7 +59,7 @@ module.exports = {
             setTimeout(function () {
                 member.send({
                     embeds: [ transcriptEmbed.setDescription(`Access your ticket transcript: ${res.url}`)]
-                }).cache(() => channel.send('Couldn\'t send transcript to Direct Messages.'));
+                }).catch(() => channel.send('Couldn\'t send transcript to Direct Messages.'));
                 channel.delete();
             }, 10000);
 
