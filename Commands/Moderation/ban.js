@@ -33,7 +33,20 @@ module.exports = {
                     await member.ban({reason});
 
                     const embed = new EmbedBuilder()
+                    .setTitle('🔨・Ban')
                     .setDescription(`Succesfully banned ${user} with reason: ${reason}`)
+                    .addFields(
+                        {
+                            name:"👤┆Banned by",
+                            value: interaction.user.tag,
+                            inline: true
+                        },
+                        {
+                            name: "💬┆Reason",
+                            value: reason,
+                            inline: true
+                        }
+                    )
                     .setColor(0x5fb041)
                     .setTimestamp()
 

@@ -33,7 +33,20 @@ module.exports = {
                 await member.kick(reason);
 
                 const embed = new EmbedBuilder()
-                .setDescription(`Succesfully kicked ${user} with reason: ${reason}`);
+                .setTitle("🔨・Kick")
+                .setDescription(`Succesfully kicked ${user} with reason: ${reason}`)
+                .addFields(
+                    {
+                        name: "👤┆Kicked by",
+                        value: interaction.user.tag,
+                        inline: true
+                    },
+                    {
+                        name: "💬┆Reason",
+                        value: reason,
+                        inline: true
+                    })
+                .setTimestamp()
 
                 await interaction.reply({
                     embeds: [embed],
