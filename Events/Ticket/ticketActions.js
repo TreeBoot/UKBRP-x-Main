@@ -42,12 +42,19 @@ module.exports = {
                     .setFooter({ text: member.user.tag, iconURL: member.displayAvatarURL({ dynamic: true}) })
                     .setTimestamp();
 
+            const transcriptProcesss = new EmbedBuilder()
+                .setTitle('Saving transcript...')
+                .setDescription("Ticket will be closed in 10 seconds, enable DM's for the transcript.")
+                .setColor("Red")
+                .setFooter({text: member.user.tag, iconURL: member.displayAvatarURL({ dynamic: true}) })
+                .setTimestamp();
+
             const res = await guild.channels.cache.get(transcripts).send({
                 embeds: [transcriptEmbed],
                 files: [transcript],
             });
 
-            channel.send({ embeds: [transcriptProcess] });
+            channel.send({ embeds: [transcriptProcesss] });
 
             setTimeout(function () {
                 member.send({
@@ -77,7 +84,7 @@ module.exports = {
             if (!member.permissions.has(ManageChannels))
                     return interaction.reply({ content: "You don't have permissions for that.", ephemeral: true });
 
-                if (data.Locked == true)
+                if (data.Locked == false)
                     return interaction.reply({ content: "Ticket is already set to unlocked.", ephemeral: true});
 
                 await ticketSchema.updateOne({ ChannelID: channel.id }, { Locked: false});
