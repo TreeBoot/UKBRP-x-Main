@@ -14,5 +14,11 @@ module.exports = {
 
             message.channel.send({ content: `${message.author}, don't attempt to ping one of the Directors or TreeBot or moderators may have to punish you! :(`});
         }
+
+        if (message.content.includes("<@1082446327058808923>")) {
+            
+
+            message.channel.send({ content: `${message.author}, don't attempt to ping Lu or he will eat  you! :(`});
+        }
     }
 }
